@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>node-based-editor</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="
+https://cdn.jsdelivr.net/npm/@google/model-viewer@4.4.0/dist/model-viewer.min.js
+"></script>
+</head>
+<body>
+
+<!-- ===== Menu Ribbon ===== -->
+<div id="menuRibbon">
+  <div class="menuLeft">
+    <div class="dropdown">
+      <button class="dropbtn">file</button>
+      <div class="dropdown-content">
+        <button id="initBtn">Init</button>
+        <button id="testBtn">Test mode</button>
+        <button id="importBtn">Import</button>
+        <button id="exportBtn">Export</button>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">help</button>
+      <div class="dropdown-content">
+        <button id="aboutBtn"><a href="./About.html">About</a></button>
+        <button id="docBtn"><a href="./LICENSE.html">Documentation</a></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="menuToggle" class="mobile-menu-btn"><span></span><span></span><span></span></div>
+
+<!-- ===== Main Container ===== -->
+<div id="container">
+
+  <!-- LEFT: Canvas -->
+  <div id="canvasPane">
+    <model-viewer 
+    id="cadViewer"
+    alt="failed to load model" 
+    camera-controls>
+  </model-viewer>    
+    <div id="overlay">
+      <!-- This wrapper will move and scale with the canvas -->
+      <div id="html-camera">
+      </div>
+    </div>
+
+    <!-- Toolbars remain fixed to the screen (not panned) -->
+    <div id="toolbar">
+      <button id="panBtn">Pan</button>
+      <button id="zoomInBtn">+</button>
+      <button id="zoomOutBtn">-</button>
+    </div>
+    <div id="editnode">
+      <div id="adOptions">
+      <button id="adBtn">Ani</button>
+      <select id="addropdown">
+      <option value="" id="adOptions">-- View Options --</option>
+      </select>
+      </div>
+      <button id="remBtn">Exp</button>
+    </div>
+  <div id="metaLayer">
+      <div id="bottomPane">
+        <span>Metadata</span>
+        <button id="collapseMetaBtn">?</button>
+      </div>
+   <div id="MetaData">
+        <table id=table>
+         <tr>
+         <th contenteditable="false">ID (Fixed)</th>
+         <th>Name (Editable)</th>
+         </tr>
+         <tr>
+        <td>1</td>
+        <td contenteditable="true">Click here to edit me!</td>
+        </tr>
+        </table>
+      </div>
+  </div>
+  </div> <!-- End CanvasPane -->
+  <!-- Divider -->
+  <div id="divider"></div>
+  <div id="mobile-assets-drawer"><div id="mobileobjPane"></div></div>
+
+  <!-- RIGHT SIDE -->
+  <div id="rightPane">
+    <div id="topPane">
+    <div id="objPane">
+    </div>
+    </div>
+  </div> <!-- End RightPane -->
+
+</div> <!-- End Container -->
+<script src="script.js"></script>
+</body>
+</html>
